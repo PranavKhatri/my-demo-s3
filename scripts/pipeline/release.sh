@@ -11,7 +11,7 @@ rm -rf $local_path
 zip -r $local_path . -x .git/ .git/*** .github/workflows/release.yml scripts/pipeline/release.sh scripts/pipeline/upload_file_to_s3.py .DS_Store
 
 # Install required dependencies for Python script.
-pip install --upgrade --user boto3
+python -m pip install boto3
 
 # Run upload script
 python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_key $aws_access_secret $local_path
